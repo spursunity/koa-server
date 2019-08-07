@@ -1,0 +1,11 @@
+{
+  "name": "koa_server",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "spursunity",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "koa": "^2.7.0"
+  }
+}
