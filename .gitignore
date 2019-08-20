@@ -1,3 +1,7 @@
-yarn.lock
+# folders
 node_modules
 public
+
+# files
+yarn.lock
+config.js
