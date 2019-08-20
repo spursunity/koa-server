@@ -13,6 +13,6 @@ const port = 3000;
 page.use(serve('./public'));
 
 app.use(mount('/', page));
-app.use(mount('/api', findMovieByYear));
+app.use(mount('/api/year', findMovieByYear));
 
 app.listen(port, console.log('server started on port ' + port));
