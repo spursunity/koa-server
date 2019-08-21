@@ -34,6 +34,10 @@ async function findMovieByYear(ctx) {
   }
 };
 
+/**
+ * query params
+ * name: String
+ */
 async function findMovieByName(ctx) {
   try {
     const { name: movieName } = ctx.query;
