@@ -3,7 +3,7 @@ const serve = require('koa-static');
 const mount = require('koa-mount');
 
 const mongooseConnect = require('./config');
-const { findMovieByYear } = require('./controllers/movies');
+const { findMovieByYear, findMovieByName } = require('./controllers/movies');
 
 mongooseConnect();
 const page = new Koa();
@@ -14,5 +14,6 @@ page.use(serve('./public'));
 
 app.use(mount('/', page));
 app.use(mount('/api/year', findMovieByYear));
+app.use(mount('/api/name', findMovieByName));
 
 app.listen(port, console.log('server started on port ' + port));
