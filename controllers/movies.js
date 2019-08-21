@@ -14,14 +14,34 @@ async function findMovieByYear(ctx) {
 
     switch (movieTime) {
       case 0:
-        response = await Movie.find({ year: { $lte: movieYear } }) || [];
+        response = await Movie.find({ year: { $lte: movieYear } });
         break;
       case 1:
-        response = await Movie.find({ year: { $gte: movieYear } }) || [];
+        response = await Movie.find({ year: { $gte: movieYear } });
         break;
       default:
         throw new Error('bad query params');
     }
+
+    if (!response) throw new Error('cannot find movie');
+
+    ctx.status = 200;
+    ctx.body = response;
+  } catch (e) {
+    console.log(e.message);
+    ctx.status = 500;
+    ctx.body = e.message;
+  }
+};
+
+async function findMovieByName(ctx) {
+  try {
+    const { name: movieName } = ctx.query;
+
+    const response = Movie.findOne({ name: movieName });
+
+    if (!response) throw new Error('cannot find movie');
+
     ctx.status = 200;
     ctx.body = response;
   } catch (e) {
