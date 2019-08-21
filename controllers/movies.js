@@ -57,4 +57,5 @@ async function findMovieByName(ctx) {
 
 module.exports = {
   findMovieByYear,
+  findMovieByName,
 };
