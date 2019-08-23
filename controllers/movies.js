@@ -42,7 +42,8 @@ async function findMovieByName(ctx) {
   try {
     const { name: movieName } = ctx.query;
 
-    const response = Movie.findOne({ name: movieName });
+    const response = await Movie.find({ name: movieName });
+    console.log(response);
 
     if (!response) throw new Error('cannot find movie');
 
